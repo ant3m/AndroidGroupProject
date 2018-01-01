@@ -37,6 +37,7 @@ public class AutomobileDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         db.execSQL(" CREATE TABLE " + TABLE_NAME + " (" +
                 KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
                 COLUMN_DATE + " DATETIME NOT NULL , " +
@@ -78,7 +79,6 @@ public class AutomobileDatabaseHelper extends SQLiteOpenHelper {
 
     List<HistoryModel> getHistoryList() {
 
-//        List<HistoryModel> historyModels = new ArrayList<>();
         String selectQuery = "SELECT * FROM " + TABLE_NAME;
         Log.i("AutoDatabaseHelper", "Getting History List");
 

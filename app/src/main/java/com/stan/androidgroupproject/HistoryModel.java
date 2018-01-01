@@ -6,10 +6,8 @@ package com.stan.androidgroupproject;
 
 public class HistoryModel {
 
-    private int id, price, distance, liter, avgPrice, avgLiter;
+    private int id, price, distance, liter;
     private String date;
-
-//    public ArrayList<HistoryModel> mHistoryModelArrayList = new ArrayList<>();
 
     public HistoryModel() {
 
