@@ -9,4 +9,11 @@
         app:showAsAction="always"
         android:orderInCategory="100"/>
 
+    <item
+        android:id="@+id/action_nutrition"
+        android:icon="@android:drawable/ic_input_add"
+        android:orderInCategory="150"
+        android:title="@string/nutriapp"
+        app:showAsAction="always" />
+
 </menu>

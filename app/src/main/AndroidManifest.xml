@@ -33,5 +33,16 @@
                 android:value=".Automobile"
                 />
         </activity>
+
+        <activity android:name=".NutriMain">
+
+    </activity>
+        <activity android:name=".CalculateCalories"></activity>
+        <activity android:name=".EditFood"></activity>
+        <activity android:name=".EmptyFrameLayout"></activity>
+        <activity android:name=".FoodChat"></activity>
+        <activity android:name=".FoodInfoForm"></activity>
+        <activity android:name=".Transition"></activity>
+
     </application>
 </manifest>

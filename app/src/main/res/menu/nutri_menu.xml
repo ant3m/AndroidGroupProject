@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:title="Choice One"
+        app:showAsAction="always"
+        android:orderInCategory="100"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:id="@+id/action_one"/>
+
+    <item
+        android:id="@+id/action_two"
+        android:icon="?android:attr/actionModeWebSearchDrawable"
+        android:orderInCategory="100"
+        android:title="Choice Two"
+        app:showAsAction="always" />
+
+
+</menu>

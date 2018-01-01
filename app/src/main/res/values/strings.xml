@@ -10,4 +10,68 @@
     <string name="litres">Litres</string>
     <string name="trip_km">Trip KM</string>
     <string name="automobile">Automobile</string>
+
+    <string name="NutriMainButton">Add New Food</string>
+
+    <string name="fifname">Food Name</string>
+
+    <string name="fifcals">Calories</string>
+
+    <string name="fifpro">Protein</string>
+
+    <string name="fiffat">Total Fat</string>
+
+    <string name="fifcarb">Carbs</string>
+
+    <string name="typeName">name</string>
+
+    <string name="calHint">calories</string>
+
+    <string name="carbHint">carbs</string>
+
+    <string name="fatHint">fat</string>
+
+    <string name="proteinHint">protein</string>
+
+    <string name="foodFrag">FoodName</string>
+
+    <string name="fragID">Food ID</string>
+
+    <string name="deleteEntry">Delete?</string>
+
+    <string name="go_back">Go Back</string>
+
+    <string name="backToMain">Back</string>
+
+    <string name="submit_new_food_item">Submit New Food Item</string>
+
+    <string name="update">Update</string>
+
+    <string name="foodText">foodText</string>
+
+    <string name="edit">Edit</string>
+
+    <string name="title_activity_food_bar">FoodBar</string>
+
+    <string name="title_activity_test_toolbar">TestToolbar</string>
+
+    <string name="goBack">GoBack</string>
+
+    <string name="calorie_information">Calorie Information</string>
+
+    <string name="check_food_list">Check Food List</string>
+
+    <string name="dailymax">dailyMax</string>
+
+    <string name="dailyavg">dailyAvg</string>
+
+    <string name="totalavg">totalAvg</string>
+
+    <string name="nutriMainActNum">The activity version number is</string>
+
+    <string name="instructions">Click \'Add New Food\' to add as many food items as you wish. \'Check Food List\' allows you to delete or edit your entries. \'Calorie Information\' gives you a few insights on your caloric intake</string>
+
+    <string name="author">Author:</string>
+    <string name="nutriapp">NutriApp</string>
+
 </resources>
