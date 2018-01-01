@@ -34,7 +34,9 @@
                 />
         </activity>
 
-        <activity android:name=".NutriMain">
+        <activity android:name=".NutriMain"
+            android:parentActivityName=".MainActivity"
+            >
 
     </activity>
         <activity android:name=".CalculateCalories"></activity>

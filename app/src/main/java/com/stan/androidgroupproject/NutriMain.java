@@ -68,7 +68,7 @@ public class NutriMain extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu m){
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, m);
+        inflater.inflate(R.menu.nutri_menu, m);
         return true;
     }
 
