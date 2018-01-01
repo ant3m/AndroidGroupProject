@@ -3,29 +3,36 @@ package com.stan.androidgroupproject;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 public class Automobile extends AppCompatActivity {
 
-    private static final String ACTIVITY_NAME = "MainActivity";
+    private static final String ACTIVITY_NAME = "Automobile";
 
+    PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), Automobile.this);
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_automobile);
+
+        Log.i(ACTIVITY_NAME,"In onCreate");
 
         Toolbar toolbar = findViewById(R.id.automobile_toolbar);
         setSupportActionBar(toolbar);
@@ -36,8 +43,7 @@ public class Automobile extends AppCompatActivity {
         }
 
         // Get the ViewPager and set its PagerAdapter so that it can display items
-        ViewPager viewPager = findViewById(R.id.view_pager);
-        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), Automobile.this);
+        viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(pagerAdapter);
 
         // Give the TabLayout the ViewPager
@@ -54,23 +60,27 @@ public class Automobile extends AppCompatActivity {
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), RefuelActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_up, R.anim.stay);
-                finish();
-            }
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), RefuelActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_up, R.anim.stay);
         });
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onResume() {
+        super.onResume();
+        viewPager.setAdapter(pagerAdapter);
+//        pagerAdapter.notifyDataSetChanged();
+        Log.i(ACTIVITY_NAME,"In onResume");
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(ACTIVITY_NAME,"In onPause");
+    }
 
     /**
      * A Simple Adapter class for attaching fragment to the ViewPager
@@ -91,7 +101,7 @@ public class Automobile extends AppCompatActivity {
 
             switch (position) {
                 case 0:
-                    return new HistoryFragment();
+                    return new HistoryFragment().newInstance();
                 case 1:
                     return new MonthlyFragment();
             }
@@ -107,7 +117,7 @@ public class Automobile extends AppCompatActivity {
             return tabTitle[position];
         }
 
-        public View getTabView(int position) {
+        View getTabView(int position) {
             View tab = LayoutInflater.from(Automobile.this).inflate(R.layout.tab_layout, null);
             TextView textView = tab.findViewById(R.id.tab_text);
             textView.setText(tabTitle[position]);

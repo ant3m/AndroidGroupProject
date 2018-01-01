@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.stan.fueltracker.RefuelActivity"
-    android:background="@color/colorPrimaryDark">
+    tools:context="com.stan.androidgroupproject.RefuelActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/refuel_appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        >
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/refuel_toolbar"
@@ -45,12 +42,12 @@
                     android:layout_marginEnd="@dimen/text_margin"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="48dp"
-                    android:textColor="@color/textSecondaryLight"
                     android:drawableEnd="@drawable/ic_today_black_24dp"
                     android:drawableTint="@color/very_light"
                     android:focusable="false"
                     android:hint="@string/pick_date"
                     android:textAppearance="@style/InfoTextView"
+                    android:textColor="@color/textSecondaryLight"
                     android:textColorHint="@color/very_light"
                     android:theme="@style/EditTextTheme" />
 

@@ -25,6 +25,10 @@ public class HistoryFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public HistoryFragment newInstance(){
+        return new HistoryFragment();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,7 @@ public class HistoryFragment extends Fragment {
         AutomobileDatabaseHelper automobileDatabaseHelper = new AutomobileDatabaseHelper(getContext());
         historyAdapter = new HistoryAdapter(automobileDatabaseHelper.getHistoryList(), getActivity().getApplicationContext(), recyclerView);
 
+        historyAdapter.notifyDataSetChanged();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         linearLayoutManager.setReverseLayout(true);
@@ -62,13 +67,13 @@ public class HistoryFragment extends Fragment {
 
     }
 
+
+
     static class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHolder> {
 
         private List<HistoryModel> mHistoryModelList;
         private Context mContext;
         private RecyclerView mRecyclerView;
-
-//        private String[] date, price, liter, trip;
 
         class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -101,7 +106,6 @@ public class HistoryFragment extends Fragment {
             this.mHistoryModelList = myDataSet;
             this.mContext = context;
             this.mRecyclerView = recyclerView;
-//            notifyDataSetChanged();
         }
 
         @Override

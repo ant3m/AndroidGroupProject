@@ -61,7 +61,6 @@ public class RefuelActivity extends AppCompatActivity {
         entryFab.setOnClickListener((View view) -> {
             saveEntry();
             onBackPressed();
-            
         });
 
     }
@@ -86,18 +85,17 @@ public class RefuelActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(getApplicationContext(), Automobile.class);
-        startActivity(intent);
+
+        super.onBackPressed();
         overridePendingTransition(R.anim.stay, R.anim.slide_down);
-        finish();
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                Intent intent = new Intent(getApplicationContext(), Automobile.class);
-                startActivity(intent);
+                onBackPressed();
             default:
                 return super.onOptionsItemSelected(item);
         }
