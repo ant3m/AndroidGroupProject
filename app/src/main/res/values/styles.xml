@@ -1,0 +1,40 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TitleTextView" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@color/textSecondaryLight</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/assistant_light</item>
+    </style>
+
+    <style name="InfoTextView" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:textColor">@color/textPrimaryLight</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/assistant_light</item>
+    </style>
+
+    <style name="EditTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/very_light</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/assistant_light</item>
+    </style>
+
+
+</resources>

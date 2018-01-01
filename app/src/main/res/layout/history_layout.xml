@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/history_cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:background="@color/colorPrimaryDark"
+    android:backgroundTint="@color/colorPrimaryDark"
+    app:cardCornerRadius="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/gas_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="true"
+            android:tint="@color/cardview_light_background"
+            app:srcCompat="@drawable/ic_local_gas_station_black_40dp" />
+
+        <TextView
+            android:id="@+id/date_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/gas_imageView"
+            android:maxLines="1"
+            android:text="16 December 2017"
+            android:textColor="@color/textSecondaryLight"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/history_price_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:text="$42"
+            android:textColor="@color/textPrimaryLight"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/history_trip_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/history_qty_textView"
+            android:layout_below="@id/date_textView"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/gas_imageView"
+            android:text="320 Km"
+            android:textColor="@color/textSecondaryLight"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/history_qty_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/history_price_textView"
+            android:layout_toEndOf="@+id/history_trip_textView"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:text="23 Litres"
+            android:textColor="@color/textSecondaryLight"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

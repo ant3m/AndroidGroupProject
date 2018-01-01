@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CST2335 GroupProject</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="average_refuel_cost_last_month">Average refuel cost last month</string>
+    <string name="pick_date">Pick date of refuel</string>
+    <string name="price">Price in CAD</string>
+    <string name="litres">Litres</string>
+    <string name="trip_km">Trip KM</string>
+    <string name="automobile">Automobile</string>
+</resources>
