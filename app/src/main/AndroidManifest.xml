@@ -26,7 +26,8 @@
         </activity>
 
         <activity android:name=".RefuelActivity"
-            android:parentActivityName=".Automobile">
+            android:parentActivityName=".Automobile"
+            android:label="">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
