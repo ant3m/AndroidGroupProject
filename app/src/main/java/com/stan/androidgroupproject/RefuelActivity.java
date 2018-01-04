@@ -1,9 +1,12 @@
 package com.stan.androidgroupproject;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +14,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +23,14 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class RefuelActivity extends AppCompatActivity {
+
+    public static class Utils{
+
+        private static void changeStatusBarColor(Activity activity, int color){
+            activity.getWindow().setStatusBarColor(ContextCompat.getColor(activity, color));
+        }
+
+    }
 
     FloatingActionButton entryFab;
     EditText dateEditText;
@@ -41,6 +53,9 @@ public class RefuelActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        Utils.changeStatusBarColor(this, R.color.colorPrimary);
+
 
         Log.i("RefuelActivity", "In onCreate");
 

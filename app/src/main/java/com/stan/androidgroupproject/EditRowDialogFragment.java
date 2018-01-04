@@ -96,6 +96,7 @@ public class EditRowDialogFragment extends AppCompatDialogFragment {
                 mAutomobileBackgroundTask = new AutomobileBackgroundTask(getContext());
                 mAutomobileBackgroundTask.execute("update_refuel", date, String.valueOf(price), String.valueOf(liter), String.valueOf(kilometer));
             }
+            dismiss();
         });
 
         alertDialogBuilder.setView(view);
