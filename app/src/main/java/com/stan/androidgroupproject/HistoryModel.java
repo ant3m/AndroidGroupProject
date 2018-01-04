@@ -2,6 +2,7 @@ package com.stan.androidgroupproject;
 
 /**
  * Created by stan on 30/12/2017.
+ * POJO class for all the history items
  */
 
 public class HistoryModel {

@@ -68,6 +68,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
+
                         android:drawableEnd="@drawable/ic_attach_money_black_24dp"
                         android:drawableTint="@color/very_light"
                         android:hint="@string/price"

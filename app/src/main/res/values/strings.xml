@@ -10,4 +10,18 @@
     <string name="litres">Litres</string>
     <string name="trip_km">Trip KM</string>
     <string name="automobile">Automobile</string>
+    <string name="edit_date">Edit Date</string>
+    <string name="edit_price">Edit Price</string>
+    <string name="edit_liters">Edit Liters</string>
+    <string name="edit_km">Edit KM</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="automobile_help">Help</string>
+    <string name="automobile_guide"> Automobile fuel tracking activity made by \n\nStanley Gomes
+        \n\n040812904 \n\nTo add a new refuel, press on the floating action button in the bottom right.
+        \Please fill in all the details and press okay.
+        \nThe main screen has two layouts. Swipe left to check your monthly refuel expense.
+        \nSwipe right to view the history of all your refuels.
+        \nTo edit or delete records, press on an item and choose your action
+    </string>
 </resources>

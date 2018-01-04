@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by stan on 30/12/2017.
+ * Helper class for the Automobile database
  */
 
 public class AutomobileDatabaseHelper extends SQLiteOpenHelper {
@@ -24,16 +25,35 @@ public class AutomobileDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_HISTORY_PRICE = "history_price";
     private static final String COLUMN_HISTORY_TRIP = "trip";
     private static final String COLUMN_HISTORY_LITER = "liter";
+    private static AutomobileDatabaseHelper automobileDatabaseInstance = null;
+    private Context mContext;
 
 
-    private List<HistoryModel> historyModels = new ArrayList<>();
+    private List<HistoryModel> historyModels;
 
+    /**
+     * Singleton Pattern to prevent memory leaks.
+     *
+     * @param context
+     * @return instance of AutomobileDatabaseHelper
+     */
 
-    public AutomobileDatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, VERSION_NUM);
+    public static AutomobileDatabaseHelper newInstance(Context context) {
+        if (automobileDatabaseInstance == null) {
+            automobileDatabaseInstance = new AutomobileDatabaseHelper(context.getApplicationContext());
+        }
+        return automobileDatabaseInstance;
     }
 
 
+    private AutomobileDatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, VERSION_NUM);
+        this.mContext = context;
+    }
+
+    /*
+        Creates Table
+     */
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -59,11 +79,13 @@ public class AutomobileDatabaseHelper extends SQLiteOpenHelper {
         Log.i("AutoDatabaseHelper", "Calling onUpgrade, old version was " + oldVersion + " new version is " + newVersion);
     }
 
+    /*
+        Inserts data to the table
+     */
+
     void saveNewRefuel(SQLiteDatabase database, String date, int price, int liter, int distance) {
 
-//        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-//        contentValues.put(KEY_ID, historyModel.getId());
         contentValues.put(COLUMN_DATE, date);
         contentValues.put(COLUMN_HISTORY_PRICE, price);
         contentValues.put(COLUMN_HISTORY_LITER, liter);
@@ -72,10 +94,12 @@ public class AutomobileDatabaseHelper extends SQLiteOpenHelper {
 
         Log.i("AutoDatabaseHelper", "One row inserted");
 
-//        database.close();
 
     }
 
+    /*
+        Gets all records in the table
+     */
 
     List<HistoryModel> getHistoryList() {
 
@@ -83,6 +107,7 @@ public class AutomobileDatabaseHelper extends SQLiteOpenHelper {
         Log.i("AutoDatabaseHelper", "Getting History List");
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        historyModels = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.rawQuery(selectQuery, null);
 
         HistoryModel historyModel;
@@ -103,6 +128,33 @@ public class AutomobileDatabaseHelper extends SQLiteOpenHelper {
         }
 
         return historyModels;
+    }
+
+    /*
+        Updates a record in the table
+     */
+
+    public void updateRecord(SQLiteDatabase database, String date, Integer price, Integer liter, Integer trip) {
+        ContentValues values = new ContentValues();
+//        HistoryModel historyModel = new HistoryModel();
+
+        values.put(COLUMN_DATE, date);
+        values.put(COLUMN_HISTORY_PRICE, price);
+        values.put(COLUMN_HISTORY_LITER, liter);
+        values.put(COLUMN_HISTORY_TRIP, trip);
+
+        database.update(TABLE_NAME, values, "history_price = ?", new String[]{Integer.toString(price)});
+    }
+
+
+    /*
+        Deletes the record in the table
+     */
+
+    public void deleteRecord(Integer id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.delete(TABLE_NAME, "date = ?", new String[]{Integer.toString(id)});
+
     }
 
 }

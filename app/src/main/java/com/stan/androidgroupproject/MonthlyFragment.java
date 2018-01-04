@@ -11,6 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * Created by Stan on 21/12/2017.
+ * Fragment for viewing monthly expense.
+ */
+
 
 public class MonthlyFragment extends Fragment {
 
@@ -36,10 +41,10 @@ public class MonthlyFragment extends Fragment {
 
         Log.i("MonthlyFragment", "In onCreateView");
 
-        MonthlyAdapter monthlyAdapter = new MonthlyAdapter(new String[]{"December","November","October","September","August","July","June","May","April","March","February","January"},
-                new String[]{"45","65","53","53","53","53","53","53","53","53","53","53"},
-                new String[]{"32","26","26","26","26","26","26","26","26","26","26","26"},
-                new String[]{"102","99","99","99","99","99","99","99","99","99","99","99"});
+        MonthlyAdapter monthlyAdapter = new MonthlyAdapter(new String[]{"December", "November", "October", "September", "August", "July", "June", "May", "April", "March", "February", "January"},
+                new String[]{"45", "65", "53", "53", "53", "53", "53", "53", "53", "53", "53", "53"},
+                new String[]{"32", "26", "26", "26", "26", "26", "26", "26", "26", "26", "26", "26"},
+                new String[]{"102", "99", "99", "99", "99", "99", "99", "99", "99", "99", "99", "99"});
 
         recyclerView.setAdapter(monthlyAdapter);
 
@@ -50,9 +55,9 @@ public class MonthlyFragment extends Fragment {
 
     }
 
-    static class MonthlyAdapter extends RecyclerView.Adapter<MonthlyAdapter.MyViewHolder>{
+    static class MonthlyAdapter extends RecyclerView.Adapter<MonthlyAdapter.MyViewHolder> {
 
-        private String [] month, price, qty, trip;
+        private String[] month, price, qty, trip;
 
         static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -69,7 +74,7 @@ public class MonthlyFragment extends Fragment {
             }
         }
 
-        MonthlyAdapter(String[] mMonth, String[] mPrice, String[] mQty, String[] mTrip){
+        MonthlyAdapter(String[] mMonth, String[] mPrice, String[] mQty, String[] mTrip) {
             this.month = mMonth;
             this.price = mPrice;
             this.qty = mQty;
@@ -90,9 +95,9 @@ public class MonthlyFragment extends Fragment {
         public void onBindViewHolder(MonthlyAdapter.MyViewHolder holder, int position) {
 
             holder.monthTextView.setText(month[position]);
-            holder.priceTextView.setText("$"+price[position]);
-            holder.qtyTextView.setText(qty[position]+" Litres of gas purchased");
-            holder.tripTextView.setText("Travelled "+trip[position]+" Kms");
+            holder.priceTextView.setText("$" + price[position]);
+            holder.qtyTextView.setText(qty[position] + " Litres of gas purchased");
+            holder.tripTextView.setText("Travelled " + trip[position] + " Kms");
 
         }
 
