@@ -32,7 +32,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/fab_margin"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:focusableInTouchMode="true">
 
                 <EditText
                     android:id="@+id/date_editText"
@@ -72,7 +73,7 @@
                         android:drawableEnd="@drawable/ic_attach_money_black_24dp"
                         android:drawableTint="@color/very_light"
                         android:hint="@string/price"
-                        android:inputType="number|numberDecimal"
+                        android:inputType="number"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -96,7 +97,7 @@
                         android:drawableEnd="@drawable/ic_invert_colors_black_24dp"
                         android:drawableTint="@color/very_light"
                         android:hint="@string/litres"
-                        android:inputType="number|numberDecimal"
+                        android:inputType="number"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -120,7 +121,7 @@
                         android:drawableEnd="@drawable/ic_directions_car_black_24dp"
                         android:drawableTint="@color/very_light"
                         android:hint="@string/trip_km"
-                        android:inputType="number|numberDecimal"
+                        android:inputType="number"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>

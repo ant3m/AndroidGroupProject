@@ -95,8 +95,9 @@ public class EditRowDialogFragment extends AppCompatDialogFragment {
                 kilometer = Integer.parseInt(editKmInput.getText().toString());
                 mAutomobileBackgroundTask = new AutomobileBackgroundTask(getContext());
                 mAutomobileBackgroundTask.execute("update_refuel", date, String.valueOf(price), String.valueOf(liter), String.valueOf(kilometer));
+
+                dismiss();
             }
-            dismiss();
         });
 
         alertDialogBuilder.setView(view);
