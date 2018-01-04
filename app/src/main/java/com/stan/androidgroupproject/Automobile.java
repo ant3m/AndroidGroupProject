@@ -95,11 +95,12 @@ public class Automobile extends AppCompatActivity {
 
     class PagerAdapter extends FragmentPagerAdapter {
 
-        String tabTitle[] = new String[]{"History", "Monthly"};
+        String[] tabTitle = new String[]{"History","Monthly"};
         Context mContext;
 
         PagerAdapter(FragmentManager fm, Context context) {
             super(fm);
+
             this.mContext = context;
         }
 

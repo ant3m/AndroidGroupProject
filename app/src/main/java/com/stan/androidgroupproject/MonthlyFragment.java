@@ -96,8 +96,8 @@ public class MonthlyFragment extends Fragment {
 
             holder.monthTextView.setText(month[position]);
             holder.priceTextView.setText("$" + price[position]);
-            holder.qtyTextView.setText(qty[position] + " Litres of gas purchased");
-            holder.tripTextView.setText("Travelled " + trip[position] + " Kms");
+            holder.qtyTextView.setText(qty[position] + R.string.liters_of_gas);
+            holder.tripTextView.setText(R.string.travelled + trip[position] + " Kms");
 
         }
 

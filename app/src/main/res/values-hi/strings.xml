@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CST2335 Jhunda Pariyojana</string>
+    <string name="action_settings">Settings</string>
+    <string name="average_refuel_cost_last_month">Mahiney ka eendhan ausat daam</string>
+    <string name="pick_date">Eendhan bharney ka date</string>
+    <string name="price">Eendhan ka daam CAD mein</string>
+    <string name="litres">Liters</string>
+    <string name="trip_km">Yaatra ka KM</string>
+    <string name="automobile">Gaadi</string>
+    <string name="edit_date">Date badlein</string>
+    <string name="edit_price">Daam badlein</string>
+    <string name="edit_liters">Liter badlein</string>
+    <string name="edit_km">KM badlein</string>
+    <string name="cancel">Radh karein</string>
+    <string name="done">Jama karein</string>
+    <string name="travelled">Travelled</string>
+    <string name="automobile_help">Madad</string>
+    <string name="automobile_guide">Gaadi ke eendhan ke daam pe nazar rakhein banaya hai
+        \n\nStanley Gomes \n\n040812904 \n\n Naya eendhan daalney ke liye nichey daye taraf button ko dabaya.
+        Sab information daalney ke baad, button dabaye.
+        \nMukhya screen mein dou pradarshan hai. daaye taraf mahiney ka karcha hai or baaye taraf kul kharcha.
+        \nKoi kharchey ko badalney ya hataney ke liye unpe click karey or apna pasand chuney.
+    </string>
+    <string name="liters_of_gas">liter eendhan karhida</string>
+</resources>
