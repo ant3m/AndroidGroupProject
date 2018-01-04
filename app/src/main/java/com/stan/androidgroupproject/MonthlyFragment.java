@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 public class MonthlyFragment extends Fragment {
 
+
     public MonthlyFragment() {
         // Required empty public constructor
     }
@@ -55,11 +56,11 @@ public class MonthlyFragment extends Fragment {
 
     }
 
-    static class MonthlyAdapter extends RecyclerView.Adapter<MonthlyAdapter.MyViewHolder> {
+    class MonthlyAdapter extends RecyclerView.Adapter<MonthlyAdapter.MyViewHolder> {
 
         private String[] month, price, qty, trip;
 
-        static class MyViewHolder extends RecyclerView.ViewHolder {
+        class MyViewHolder extends RecyclerView.ViewHolder {
 
             public CardView mCardView;
             public TextView monthTextView, priceTextView, qtyTextView, tripTextView;
@@ -94,10 +95,15 @@ public class MonthlyFragment extends Fragment {
         @Override
         public void onBindViewHolder(MonthlyAdapter.MyViewHolder holder, int position) {
 
+            final String literText  = getContext().getString(R.string.liters_of_gas);
+            final String distanceText = getContext().getString(R.string.travelled);
+
+            Log.i("MonthlyFragment", literText + "  " + distanceText);
+
             holder.monthTextView.setText(month[position]);
             holder.priceTextView.setText("$" + price[position]);
-            holder.qtyTextView.setText(qty[position] + R.string.liters_of_gas);
-            holder.tripTextView.setText(R.string.travelled + trip[position] + " Kms");
+            holder.qtyTextView.setText(qty[position] +" " + literText );
+            holder.tripTextView.setText(distanceText + " " + trip[position] + " Kms");
 
         }
 

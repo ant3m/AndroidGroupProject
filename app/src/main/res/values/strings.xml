@@ -22,5 +22,5 @@
         \nSwipe right to view the history of all your refuels.
         \nTo edit or delete records, press on an item and choose your action
     </string>
-    <string name="travelled">Kul yaatra</string>
+    <string name="travelled">Travelled</string>
 </resources>
