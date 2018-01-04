@@ -28,7 +28,7 @@
     <string name="dailyavg">Promedio al dia</string>
     <string name="totalavg">Promedio total</string>
     <string name="nutriMainActNum">La versión del número de actividad es</string>
-    <string name="instructions">Click \'Add New Food\' to add as many food items as you wish. \'Check Food List\' allows you to delete or edit your entries. \'Calorie Information\' gives you a few insights on your caloric intake</string>
+    <string name="instructions">Hacer clic a \'Agregar Comida Nueva\' para agregar comidas que desee. \'Revisar Lista de Comida\' le permite borrar o editar sus entradas. \'Información de Calorias\' le da algunas ideas sobre su consumo de calorias.</string>
     <string name="author">Autor:</string>
     <string name="nutriapp">NutriApp</string>
 </resources>

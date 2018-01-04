@@ -21,7 +21,8 @@
     android:layout_height="wrap_content"
     android:layout_alignBottom="@+id/cals"
     android:layout_toEndOf="@+id/foodName"
-    android:hint="@string/calHint" />
+    android:hint="@string/calHint"
+        android:inputType="number"/>
 
     <EditText
     android:id="@+id/editCarbs"
@@ -29,7 +30,8 @@
     android:layout_height="wrap_content"
     android:layout_alignBottom="@+id/carbs"
     android:layout_alignStart="@+id/editCals"
-    android:hint="@string/carbHint" />
+    android:hint="@string/carbHint"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/editFat"
@@ -37,7 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/fat"
         android:layout_alignStart="@+id/editCarbs"
-        android:hint="@string/fatHint" />
+        android:hint="@string/fatHint"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/editProtein"
@@ -45,7 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/protein"
         android:layout_alignStart="@+id/editFat"
-        android:hint="@string/proteinHint" />
+        android:hint="@string/proteinHint"
+        android:inputType="number"/>
 
     <TextView
         android:id="@+id/foodName"

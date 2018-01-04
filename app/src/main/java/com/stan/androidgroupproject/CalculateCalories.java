@@ -208,7 +208,7 @@ public class CalculateCalories extends Activity {
                 Log.i("CalcCals", "here's whats inside " + calList.get(i));
 
             }
-            publishProgress(10);
+            publishProgress(33);
             if(calList.size() == 0){
                Log.i("zero", "Can't divide by zero");
             }else{
@@ -231,7 +231,7 @@ public class CalculateCalories extends Activity {
 
 
             }
-            publishProgress(20);
+            publishProgress(66);
             if(list.size()== 0){
                 Log.i("Zero","Watch out");
             }else{
@@ -254,7 +254,7 @@ public class CalculateCalories extends Activity {
                 //   Log.i("DailyAvgCalc", "Here are the values for today(date): " + theTime);
 
             }
-            publishProgress(30);
+            publishProgress(100);
             Log.i("CalcCals", "Daily max cals is " + dailyMax);
 
 
