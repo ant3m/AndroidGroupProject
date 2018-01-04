@@ -1,23 +1,36 @@
 package com.stan.androidgroupproject;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class RefuelActivity extends AppCompatActivity {
+
+    public static class Utils{
+
+        private static void changeStatusBarColor(Activity activity, int color){
+            activity.getWindow().setStatusBarColor(ContextCompat.getColor(activity, color));
+        }
+
+    }
 
     FloatingActionButton entryFab;
     EditText dateEditText;
@@ -41,6 +54,9 @@ public class RefuelActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        Utils.changeStatusBarColor(this, R.color.colorPrimary);
+
+
         Log.i("RefuelActivity", "In onCreate");
 
         final DatePickerDialog.OnDateSetListener dateSetListener = (view, year, month, dayOfMonth) -> {
@@ -50,31 +66,39 @@ public class RefuelActivity extends AppCompatActivity {
             getRefuelDate();
         };
 
-        dateEditText.setOnClickListener(view -> {
-            new DatePickerDialog(RefuelActivity.this, dateSetListener,
-                    refuelDate.get(Calendar.YEAR),
-                    refuelDate.get(Calendar.MONTH),
-                    refuelDate.get(Calendar.DAY_OF_MONTH)).show();
-        });
+        dateEditText.setOnClickListener(view -> new DatePickerDialog(RefuelActivity.this, dateSetListener,
+                refuelDate.get(Calendar.YEAR),
+                refuelDate.get(Calendar.MONTH),
+                refuelDate.get(Calendar.DAY_OF_MONTH)).show());
 
         entryFab = findViewById(R.id.insert_fab);
         entryFab.setOnClickListener((View view) -> {
-            saveEntry();
-            onBackPressed();
-            
+            String date;
+            int price;
+            int liter;
+            int kilometer;
+
+            if (TextUtils.isEmpty(dateEditText.getText().toString())) {
+                Toast.makeText(this, "Please add a date of refuel!", Toast.LENGTH_SHORT).show();
+            } else if (priceInput.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Please add a price of refuel!", Toast.LENGTH_SHORT).show();
+            } else if (litreInput.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Please add liter of refuel!", Toast.LENGTH_SHORT).show();
+            } else if (kmInput.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Please add km of refuel!", Toast.LENGTH_SHORT).show();
+            } else {
+                date = dateEditText.getText().toString();
+                price = Integer.parseInt(priceInput.getText().toString());
+                liter = Integer.parseInt(litreInput.getText().toString());
+                kilometer = Integer.parseInt(kmInput.getText().toString());
+
+                AutomobileBackgroundTask backgroundTask = new AutomobileBackgroundTask(this);
+                backgroundTask.execute("add_refuel", date, String.valueOf(price), String.valueOf(liter), String.valueOf(kilometer));
+
+                onBackPressed();
+            }
+
         });
-
-    }
-
-    private void saveEntry() {
-
-        String date = dateEditText.getText().toString();
-        int price = Integer.parseInt(priceInput.getText().toString());
-        int liter = Integer.parseInt(litreInput.getText().toString());
-        int kilometer = Integer.parseInt(kmInput.getText().toString());
-
-        AutomobileBackgroundTask backgroundTask = new AutomobileBackgroundTask(this);
-        backgroundTask.execute("add_refuel", date, String.valueOf(price), String.valueOf(liter), String.valueOf(kilometer));
 
     }
 
@@ -86,18 +110,17 @@ public class RefuelActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(getApplicationContext(), Automobile.class);
-        startActivity(intent);
+
+        super.onBackPressed();
         overridePendingTransition(R.anim.stay, R.anim.slide_down);
-        finish();
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent = new Intent(getApplicationContext(), Automobile.class);
-                startActivity(intent);
+                onBackPressed();
             default:
                 return super.onOptionsItemSelected(item);
         }

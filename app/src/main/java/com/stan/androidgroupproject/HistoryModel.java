@@ -2,14 +2,13 @@ package com.stan.androidgroupproject;
 
 /**
  * Created by stan on 30/12/2017.
+ * POJO class for all the history items
  */
 
 public class HistoryModel {
 
-    private int id, price, distance, liter, avgPrice, avgLiter;
+    private int id, price, distance, liter;
     private String date;
-
-//    public ArrayList<HistoryModel> mHistoryModelArrayList = new ArrayList<>();
 
     public HistoryModel() {
 

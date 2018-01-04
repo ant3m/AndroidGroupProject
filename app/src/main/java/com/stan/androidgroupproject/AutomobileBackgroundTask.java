@@ -7,13 +7,13 @@ import android.widget.Toast;
 
 /**
  * Created by stan on 31/12/2017.
+ * Async class to execute SQL commands in the background thread.
  */
 
 public class AutomobileBackgroundTask extends AsyncTask<String, Void, String> {
 
     private Context mContext;
-    SQLiteDatabase sqLiteDatabase;
-
+    private SQLiteDatabase sqLiteDatabase;
 
     AutomobileBackgroundTask(Context context) {
         this.mContext = context;
@@ -26,23 +26,33 @@ public class AutomobileBackgroundTask extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
+        AutomobileDatabaseHelper automobileDatabaseHelper = AutomobileDatabaseHelper.newInstance(mContext);
+        sqLiteDatabase = automobileDatabaseHelper.getWritableDatabase();
+
+        String date;
+        int price, liter, kilometer;
 
         String method = params[0];
-        AutomobileDatabaseHelper automobileDatabaseHelper = new AutomobileDatabaseHelper(mContext);
+
         if (method.equals("add_refuel")) {
+            date = params[1];
+            price = Integer.parseInt(params[2]);
+            liter = Integer.parseInt(params[3]);
+            kilometer = Integer.parseInt(params[4]);
 
-            String date = params[1];
-            int price = Integer.parseInt(params[2]);
-            int liter = Integer.parseInt(params[3]);
-            int kilometer = Integer.parseInt(params[4]);
-
-            sqLiteDatabase = automobileDatabaseHelper.getWritableDatabase();
             automobileDatabaseHelper.saveNewRefuel(sqLiteDatabase, date, price, liter, kilometer);
-
             return "Added new entry!";
-
         }
 
+        if (method.equals("update_refuel")) {
+            date = params[1];
+            price = Integer.parseInt(params[2]);
+            liter = Integer.parseInt(params[3]);
+            kilometer = Integer.parseInt(params[4]);
+
+            automobileDatabaseHelper.updateRecord(sqLiteDatabase, date, price, liter, kilometer);
+            return "Updated entry!";
+        }
         return null;
     }
 
@@ -54,6 +64,6 @@ public class AutomobileBackgroundTask extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
 
-        Toast.makeText(mContext,result,Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, result, Toast.LENGTH_SHORT).show();
     }
 }

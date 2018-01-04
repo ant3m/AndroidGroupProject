@@ -11,8 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * Created by Stan on 21/12/2017.
+ * Fragment for viewing monthly expense.
+ */
+
 
 public class MonthlyFragment extends Fragment {
+
 
     public MonthlyFragment() {
         // Required empty public constructor
@@ -21,10 +27,7 @@ public class MonthlyFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
+
         Log.i("MonthlyFragment", "In onCreate");
     }
 
@@ -39,10 +42,10 @@ public class MonthlyFragment extends Fragment {
 
         Log.i("MonthlyFragment", "In onCreateView");
 
-        MonthlyAdapter monthlyAdapter = new MonthlyAdapter(new String[]{"December","November","October","September","August","July","June","May","April","March","February","January"},
-                new String[]{"45","65","53","53","53","53","53","53","53","53","53","53"},
-                new String[]{"32","26","26","26","26","26","26","26","26","26","26","26"},
-                new String[]{"102","99","99","99","99","99","99","99","99","99","99","99"});
+        MonthlyAdapter monthlyAdapter = new MonthlyAdapter(new String[]{"December", "November", "October", "September", "August", "July", "June", "May", "April", "March", "February", "January"},
+                new String[]{"45", "65", "53", "53", "53", "53", "53", "53", "53", "53", "53", "53"},
+                new String[]{"32", "26", "26", "26", "26", "26", "26", "26", "26", "26", "26", "26"},
+                new String[]{"102", "99", "99", "99", "99", "99", "99", "99", "99", "99", "99", "99"});
 
         recyclerView.setAdapter(monthlyAdapter);
 
@@ -53,11 +56,11 @@ public class MonthlyFragment extends Fragment {
 
     }
 
-    static class MonthlyAdapter extends RecyclerView.Adapter<MonthlyAdapter.MyViewHolder>{
+    class MonthlyAdapter extends RecyclerView.Adapter<MonthlyAdapter.MyViewHolder> {
 
-        private String [] month, price, qty, trip;
+        private String[] month, price, qty, trip;
 
-        static class MyViewHolder extends RecyclerView.ViewHolder {
+        class MyViewHolder extends RecyclerView.ViewHolder {
 
             public CardView mCardView;
             public TextView monthTextView, priceTextView, qtyTextView, tripTextView;
@@ -72,7 +75,7 @@ public class MonthlyFragment extends Fragment {
             }
         }
 
-        MonthlyAdapter(String[] mMonth, String[] mPrice, String[] mQty, String[] mTrip){
+        MonthlyAdapter(String[] mMonth, String[] mPrice, String[] mQty, String[] mTrip) {
             this.month = mMonth;
             this.price = mPrice;
             this.qty = mQty;
@@ -92,10 +95,15 @@ public class MonthlyFragment extends Fragment {
         @Override
         public void onBindViewHolder(MonthlyAdapter.MyViewHolder holder, int position) {
 
+            final String literText  = getContext().getString(R.string.liters_of_gas);
+            final String distanceText = getContext().getString(R.string.travelled);
+
+            Log.i("MonthlyFragment", literText + "  " + distanceText);
+
             holder.monthTextView.setText(month[position]);
-            holder.priceTextView.setText("$"+price[position]);
-            holder.qtyTextView.setText(qty[position]+" Litres of gas purchased");
-            holder.tripTextView.setText("Travelled "+trip[position]+" Kms");
+            holder.priceTextView.setText("$" + price[position]);
+            holder.qtyTextView.setText(qty[position] +" " + literText );
+            holder.tripTextView.setText(distanceText + " " + trip[position] + " Kms");
 
         }
 
@@ -105,44 +113,4 @@ public class MonthlyFragment extends Fragment {
         }
     }
 
-
-
-    // TODO: Rename method, update argument and hook method into UI event
-//    public void onButtonPressed(Uri uri) {
-//        if (mListener != null) {
-//            mListener.onFragmentInteraction(uri);
-//        }
-//    }
-
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-//    }
-//
-//    @Override
-//    public void onDetach() {
-//        super.onDetach();
-//        mListener = null;
-//    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-//    public interface OnFragmentInteractionListener {
-//        // TODO: Update argument type and name
-//        void onFragmentInteraction(Uri uri);
-//    }
 }

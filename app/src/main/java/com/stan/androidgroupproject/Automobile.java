@@ -10,22 +10,36 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * Created by Stan on 18/12/2017
+ * Main Activity For Automobile app
+ */
+
 public class Automobile extends AppCompatActivity {
 
-    private static final String ACTIVITY_NAME = "MainActivity";
+    private static final String ACTIVITY_NAME = "Automobile";
 
+    PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), Automobile.this);
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_automobile);
+
+        Log.i(ACTIVITY_NAME, "In onCreate");
 
         Toolbar toolbar = findViewById(R.id.automobile_toolbar);
         setSupportActionBar(toolbar);
@@ -36,8 +50,7 @@ public class Automobile extends AppCompatActivity {
         }
 
         // Get the ViewPager and set its PagerAdapter so that it can display items
-        ViewPager viewPager = findViewById(R.id.view_pager);
-        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), Automobile.this);
+        viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(pagerAdapter);
 
         // Give the TabLayout the ViewPager
@@ -54,53 +67,27 @@ public class Automobile extends AppCompatActivity {
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), RefuelActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_up, R.anim.stay);
-                finish();
-            }
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), RefuelActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_up, R.anim.stay);
         });
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onResume() {
+        super.onResume();
+        viewPager.setAdapter(pagerAdapter);
+
+        Log.i(ACTIVITY_NAME, "In onResume");
     }
 
-    //    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
-//            Log.i(ACTIVITY_NAME, "Returned to startActivity.onActivityResult");
-//
-//        }
-//    }
 
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(ACTIVITY_NAME, "In onPause");
+    }
 
     /**
      * A Simple Adapter class for attaching fragment to the ViewPager
@@ -108,11 +95,12 @@ public class Automobile extends AppCompatActivity {
 
     class PagerAdapter extends FragmentPagerAdapter {
 
-        String tabTitle[] = new String[]{"History", "Monthly"};
+        String[] tabTitle = new String[]{"History","Monthly"};
         Context mContext;
 
         PagerAdapter(FragmentManager fm, Context context) {
             super(fm);
+
             this.mContext = context;
         }
 
@@ -121,7 +109,7 @@ public class Automobile extends AppCompatActivity {
 
             switch (position) {
                 case 0:
-                    return new HistoryFragment();
+                    return new HistoryFragment().newInstance();
                 case 1:
                     return new MonthlyFragment();
             }
@@ -137,13 +125,43 @@ public class Automobile extends AppCompatActivity {
             return tabTitle[position];
         }
 
-        public View getTabView(int position) {
+        View getTabView(int position) {
             View tab = LayoutInflater.from(Automobile.this).inflate(R.layout.tab_layout, null);
             TextView textView = tab.findViewById(R.id.tab_text);
             textView.setText(tabTitle[position]);
 
             return tab;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.automobile_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_automobile_help:
+                openHelpDialog();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void openHelpDialog() {
+        LayoutInflater inflater = this.getLayoutInflater();
+        View view = inflater.inflate(R.layout.automobile_help_menu, null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setView(view);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
     }
 
 

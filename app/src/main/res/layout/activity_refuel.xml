@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.stan.fueltracker.RefuelActivity"
-    android:background="@color/colorPrimaryDark">
+    tools:context="com.stan.androidgroupproject.RefuelActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/refuel_appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        >
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/refuel_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             android:elevation="2dp">
 
         </android.support.v7.widget.Toolbar>
@@ -28,14 +25,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/refuel_appBar"
-            android:backgroundTint="@color/colorPrimaryDark">
+            android:backgroundTint="@color/colorPrimary">
 
             <LinearLayout
                 android:id="@+id/linear_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/fab_margin"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:focusableInTouchMode="true">
 
                 <EditText
                     android:id="@+id/date_editText"
@@ -45,12 +43,12 @@
                     android:layout_marginEnd="@dimen/text_margin"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="48dp"
-                    android:textColor="@color/textSecondaryLight"
                     android:drawableEnd="@drawable/ic_today_black_24dp"
                     android:drawableTint="@color/very_light"
                     android:focusable="false"
                     android:hint="@string/pick_date"
                     android:textAppearance="@style/InfoTextView"
+                    android:textColor="@color/textSecondaryLight"
                     android:textColorHint="@color/very_light"
                     android:theme="@style/EditTextTheme" />
 
@@ -71,10 +69,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
+
                         android:drawableEnd="@drawable/ic_attach_money_black_24dp"
                         android:drawableTint="@color/very_light"
                         android:hint="@string/price"
-                        android:inputType="number|numberDecimal"
+                        android:inputType="number"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -98,7 +97,7 @@
                         android:drawableEnd="@drawable/ic_invert_colors_black_24dp"
                         android:drawableTint="@color/very_light"
                         android:hint="@string/litres"
-                        android:inputType="number|numberDecimal"
+                        android:inputType="number"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -122,7 +121,7 @@
                         android:drawableEnd="@drawable/ic_directions_car_black_24dp"
                         android:drawableTint="@color/very_light"
                         android:hint="@string/trip_km"
-                        android:inputType="number|numberDecimal"
+                        android:inputType="number"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
