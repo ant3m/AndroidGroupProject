@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Móvil Final</string>
+    <string name="NutriMainButton">Agregar nueva comida</string>
+    <string name="fifname">Nombre de la comida</string>
+    <string name="fifcals">Calorias</string>
+    <string name="fifpro">Proteinas</string>
+    <string name="fiffat">Grasa total</string>
+    <string name="fifcarb">Carbohidratos</string>
+    <string name="typeName">nombre</string>
+    <string name="calHint">calorias</string>
+    <string name="carbHint">carbohidratos</string>
+    <string name="fatHint">grasa</string>
+    <string name="proteinHint">proteinas</string>
+    <string name="foodFrag">Nombre de la comida</string>
+    <string name="fragID">Comida ID</string>
+    <string name="deleteEntry">borrar?</string>
+    <string name="go_back">Regresar</string>
+    <string name="backToMain">Regresar</string>
+    <string name="submit_new_food_item">Confirmas nueva Comida</string>
+    <string name="update">actualizar</string>
+    <string name="foodText">Texto de la comida</string>
+    <string name="edit">Editar</string>
+    <string name="goBack">regresar</string>
+    <string name="calorie_information">Información de las calorias</string>
+    <string name="check_food_list">Revisar lista de la comida</string>
+    <string name="dailymax">Maximo al dia</string>
+    <string name="dailyavg">Promedio al dia</string>
+    <string name="totalavg">Promedio total</string>
+    <string name="nutriMainActNum">La versión del número de actividad es</string>
+    <string name="instructions">Hacer clic a \'Agregar Comida Nueva\' para agregar comidas que desee. \'Revisar Lista de Comida\' le permite borrar o editar sus entradas. \'Información de Calorias\' le da algunas ideas sobre su consumo de calorias.</string>
+    <string name="author">Autor:</string>
+    <string name="nutriapp">NutriApp</string>
+</resources>

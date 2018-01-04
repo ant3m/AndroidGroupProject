@@ -37,8 +37,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_automobile:
                 Intent intent = new Intent(getApplicationContext(), Automobile.class);
                 startActivity(intent);
+                break;
+            case R.id.action_nutrition:
+                Intent intent2 = new Intent(getApplicationContext(), NutriMain.class);
+                startActivity(intent2);
             default:
-                return super.onOptionsItemSelected(item);
+
         }
+        return super.onOptionsItemSelected(item);
     }
 }

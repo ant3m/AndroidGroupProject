@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jerma.mobilefinal.CalculateCalories">
+
+    <Button
+        android:id="@+id/calCalcButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/backToMain"
+        android:layout_alignParentBottom="true"
+
+        />
+
+    <TextView
+        android:id="@+id/totalAvg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/totalavg"
+        android:padding="20dp"
+        />
+
+    <TextView
+        android:id="@+id/dailyAvg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dailyavg"
+        android:layout_below="@+id/totalAvg"
+        android:padding="20dp"
+        />
+
+    <TextView
+        android:id="@+id/dailyMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dailymax"
+        android:padding="20dp"
+        android:layout_below="@+id/dailyAvg"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+
+        />
+
+
+
+</RelativeLayout>
